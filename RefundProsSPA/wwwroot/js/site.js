@@ -67,12 +67,12 @@ function loadUsers() {
             });
 
             //To-do and post creation handlers
-            $("#btnCreateTodo").click(function () {
+            $(".btn-create-todo").click(function () {
                 let parent = $(this).closest(".user-body");
                 let id = $(parent).attr("userid");
                 $("#createTodoModal").attr("userid", id).modal("show");
             });
-            $("#btnCreatePost").click(function () {
+            $(".btn-create-post").click(function () {
                 let parent = $(this).closest(".user-body");
                 let id = $(parent).attr("userid");
                 $("#createPostModal").attr("userid", id).modal("show");
@@ -210,10 +210,10 @@ function createTodosPostsBody(user) {
     let html = "<div class='container mt-1'>" +
         "<div class='row'>" +
         "<div class='col-6 text-white pt-1 text-end pe-0'>" +
-        "<label id='btnCreateTodo' class='btn-add mt-0 text-black'>" +
+        "<label class='btn-create-todo btn-add mt-0 text-black'>" +
         "<i class=' fa-solid fa-plus fa-beat'></i> Create to-do</label></div>" +
         "<div class='col-6 text-white pt-1 text-end pe-0'>" +
-        "<label id='btnCreatePost' class='btn-add mt-0 text-black'>" +
+        "<label class='btn-create-post btn-add mt-0 text-black'>" +
         "<i class=' fa-solid fa-plus fa-beat'></i> Create post</label></div>" +
         "<div class='col-6 rounded text-white pt-1 section-title mt-1'>" +
         "<h5 class='fw-bold'>To-dos</h5></div>" +
@@ -226,7 +226,7 @@ function createTodosPostsBody(user) {
         "</thead>" +
         "<tbody>";
 
-        //Add each to-do
+    //Add each to-do
     $(user.todos).each(function () {
         let completed = this.completed ? "<i class='fa-solid fa-square-check'></i>" : "<i class='fa-solid fa-circle-xmark'></i>";
         html += "<tr class='todo-body' todoid='" + this.id + "'>" +
@@ -248,7 +248,7 @@ function createTodosPostsBody(user) {
         "</thead>" +
         "<tbody>";
 
-        //Add each post
+    //Add each post
     $(user.posts).each(function () {
         html += "<tr>" +
             "<td>" + this.title + "</td>" +
