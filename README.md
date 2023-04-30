@@ -6,7 +6,7 @@ The application is running in a Docker container on https://refundprosspa-app-20
 The project was developed using Visual Studio 2022 Community Edition and .NET 6.0.16.
 
 ## Using local dB instead
-The project has the Azure dB preset, so there's no need to deploy dB on the local machine, however it is possible by changing connection string in appSettings.json file:
+The project has the Azure dB preset, so there's no need to deploy dB on the local machine, however it is possible by changing connection string in appsettings.json file:
 
 ![image](https://user-images.githubusercontent.com/132027003/235334006-91f17224-2cff-4068-af5d-ead2f4b5cb21.png)
 
