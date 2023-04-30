@@ -7,8 +7,8 @@ namespace RefundProsSPA.Business
 {
 	public class CRUD
 	{
-		private readonly RefundProsContext _context;
-
+		private RefundProsContext _context;
+		private string _APIURL = "https://jsonplaceholder.typicode.com";
 		public CRUD(RefundProsContext context)
 		{
 			_context = context;
@@ -26,7 +26,7 @@ namespace RefundProsSPA.Business
 			HttpClient client = new HttpClient();
 
 			//GET users and populate dB
-			HttpResponseMessage response = await client.GetAsync("https://jsonplaceholder.typicode.com/users");
+			HttpResponseMessage response = await client.GetAsync(_APIURL + "/users");
 			string json = await response.Content.ReadAsStringAsync();
 			var userList = JsonConvert.DeserializeObject<List<User>>(json);
 			if (userList != null)
@@ -36,8 +36,8 @@ namespace RefundProsSPA.Business
 			}
 
 			//GET todos and populate dB
-			response = await client.GetAsync("https://jsonplaceholder.typicode.com/todos");
-			json = await response.Content.ReadAsStringAsync();
+			response = await client.GetAsync(_APIURL + "/todos");
+            json = await response.Content.ReadAsStringAsync();
 			var todoList = JsonConvert.DeserializeObject<List<Todo>>(json);
 			if (todoList != null)
 			{
@@ -49,8 +49,8 @@ namespace RefundProsSPA.Business
 			}
 
 			//GET posts and populate dB
-			response = await client.GetAsync("https://jsonplaceholder.typicode.com/posts");
-			json = await response.Content.ReadAsStringAsync();
+			response = await client.GetAsync(_APIURL + "/posts");
+            json = await response.Content.ReadAsStringAsync();
 			var postList = JsonConvert.DeserializeObject<List<Post>>(json);
 			if (postList != null)
 			{
@@ -137,7 +137,7 @@ namespace RefundProsSPA.Business
 		public async Task<List<PictureListModel>> GetRandomPictures(int count = 7)
 		{
 			HttpClient client = new HttpClient();
-			var response = client.GetAsync("https://jsonplaceholder.typicode.com/photos").Result;
+			var response = client.GetAsync(_APIURL + "/photos").Result;
 			string responseBody = await response.Content.ReadAsStringAsync();
 			var pictures = JsonConvert.DeserializeObject<List<PictureListModel>>(responseBody);
 			var selected = new List<PictureListModel>();

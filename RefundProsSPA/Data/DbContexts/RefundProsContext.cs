@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using Microsoft.Data.SqlClient;
+﻿using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
+using System.Data;
 
 namespace RefundProsSPA.Data.DbContexts;
 
@@ -11,14 +9,10 @@ public partial class RefundProsContext : DbContext
     private readonly IConfiguration _configuration;
     private IDbConnection DbConnection { get; }
 
-    public RefundProsContext()
-    {
-    }
-
     public RefundProsContext(DbContextOptions<RefundProsContext> options, IConfiguration configuration)
         : base(options)
     {
-        this._configuration = configuration;
+        _configuration = configuration;
         DbConnection = new SqlConnection(_configuration.GetConnectionString("Azure"));
     }
 
