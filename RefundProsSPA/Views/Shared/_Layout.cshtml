@@ -1,0 +1,112 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - RefundProsSPA</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/clouds.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/RefundProsSPA.styles.css" asp-append-version="true" />
+</head>
+<body id="clouds">
+    <div id="alertStrip" class="alert alert-success alert-dismissible fade mb-0 w-100 position-absolute" style="z-index:10000;" role="alert">
+        <strong></strong> <label></label>
+    </div>
+
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <div id="createTodoModal" class="modal text-start" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content text-black">
+                <div class="modal-header">
+                    <h5 class="modal-title">Create to-do</h5>
+                </div>
+                <div class="modal-body">
+                    <div class="container-fluid">
+                        <div class=row>
+                            <div class="col-12">
+                                <label class="fw-bold">Title</label>
+                                <input id="inputTodoTitle" class="form-control w-100">
+                            </div>
+                        </div>
+                        <div class="row mt-2">
+                            <div class="col-12">
+                                <label class="fw-bold">Completed</label>
+                                <input id="inputTodoCompleted" type="checkbox" class="d-block mt-1 ms-1" style="transform: scale(1.5);">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button id="btnSaveTodo" type="button" class="btn btn-primary">Save</button>
+                    <button id="btnCloseTodoModal" type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="createPostModal" class="modal text-start" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content text-black">
+                <div class="modal-header">
+                    <h5 class="modal-title">Create post</h5>
+                </div>
+                <div class="modal-body">
+                    <div class="container-fluid">
+                        <div class=row>
+                            <div class="col-12">
+                                <label class="fw-bold">Title</label>
+                                <input id="inputPostTitle" class="form-control w-100">
+                            </div>
+                            <div class="col-12 mt-2">
+                                <label class="fw-bold">Body</label>
+                                <textarea id="inputPostBody" class="form-control w-100"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button id="btnSavePost" type="button" class="btn btn-primary">Save</button>
+                    <button id="btnClosePostModal" type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="repopulateModal" class="modal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content text-black">
+                <div class="modal-header">
+                    <h5 class="modal-title">Repopulate dB</h5>
+                    </div>
+                <div class="modal-body">
+                    <p>Do you want to repopulate dB from JSONPlaceholder REST API?</p>
+                </div>
+                <div class="modal-footer">
+                    <button id="btnRepopulateDb" type="button" class="btn btn-primary">Yes</button>
+                    <button id="btnDontRepopulateDb" type="button" class="btn btn-secondary" data-bs-dismiss="modal">Noup!</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="cloud x1"></div>
+    <div class="cloud x2"></div>
+    <div class="cloud x3"></div>
+    <div class="cloud x4"></div>
+    <div class="cloud x5"></div>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="https://kit.fontawesome.com/b98dc5eb20.js" crossorigin="anonymous"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
