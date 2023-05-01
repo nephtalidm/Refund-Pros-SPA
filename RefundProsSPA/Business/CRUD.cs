@@ -8,7 +8,7 @@ namespace RefundProsSPA.Business
 	public class CRUD
 	{
 		private RefundProsContext _context;
-		private string _APIURL = "https://jsonplaceholder.typicode.com";
+		private const string _APIURL = "https://jsonplaceholder.typicode.com";
 		public CRUD(RefundProsContext context)
 		{
 			_context = context;
