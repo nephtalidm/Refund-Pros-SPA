@@ -34,7 +34,6 @@ function repopulateDb() {
 
 function loadUsers() {
     $("#pageTitle").text("Downloading...").addClass("fa-flip");
-    $(".cloud").addClass("invisible");
     $.ajax({
         url: 'Home/GetUsers',
         type: "GET",
@@ -44,7 +43,6 @@ function loadUsers() {
                 $("#userList").append(createUserBody(this));
             });
             $("#pageTitle").text("Welcome to the party!").removeClass("fa-flip");
-            $(".cloud").removeClass("invisible");
             $("#userList").accordion({ heightStyle: "content" });
             $("#userList").accordion("refresh");
 
